@@ -52,6 +52,7 @@ function test2(position) {
     if(dist1 >= 135){
     	runPt = runPt + 1;
     }
+    writeRunPt()
     
     setTimeout("test()", 60000)
 
