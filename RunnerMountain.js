@@ -1,5 +1,5 @@
 function test() {
-    setInterval(navigator.geolocation.getCurrentPosition(test2), 10000)
+    navigator.geolocation.getCurrentPosition(test2)
 }
 
 function test2(position) {
@@ -18,5 +18,6 @@ function test2(position) {
 
     alert(geo_text);
     
+    setTimeout(test, 10000)
 
 }
