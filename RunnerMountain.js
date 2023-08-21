@@ -10,7 +10,9 @@ var prev_lon = 0;
 
 var runPt = 0;
 
-runPt = Number(localStrage.getItem('runPt'));
+if(localStrage.getItem('runPt') != null){
+	runPt = Number(localStrage.getItem('runPt'));
+}
 
 function writeRunPt(){
 	span1 = document.getElementById("RunPt1");
