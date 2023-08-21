@@ -36,7 +36,7 @@ function test2(position) {
     	firstFlg = false;
     }
     prev_lat = lat2;
-    prev_long = long2;
+    prev_lon = lon2;
     
     
     
