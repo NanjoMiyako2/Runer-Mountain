@@ -6,12 +6,12 @@ function test() {
 var firstFlg = true;
 
 var prev_lat = 0;
-var prev_long = 0;
+var prev_lon = 0;
 
 function test2(position) {
 
 	lat2 = position.coords.latitude
-	long2 = position.coords.longitude
+	lon2 = position.coords.longitude
 	
     var geo_text = "緯度:" + position.coords.latitude + "\n";
     geo_text += "経度:" + position.coords.longitude + "\n";
@@ -20,6 +20,8 @@ function test2(position) {
     geo_text += "高度精度:" + position.coords.altitudeAccuracy  + "\n";
     geo_text += "移動方向:" + position.coords.heading + "\n";
     geo_text += "速度:" + position.coords.speed + "\n";
+    geo_text += "prev_lat:" + prev_lat + "\n";
+    get_text += "prev_lon:" + prev_lon + "\n";
 
     var date = new Date(position.timestamp);
 
@@ -28,7 +30,7 @@ function test2(position) {
 
     var dist1 = 0;
     if(firstFlg != true){
-    	dist1 = distance(prev_lat, prev_long, lat2, long2)
+    	dist1 = distance(prev_lat, prev_lon, lat2, lon2)
     	
     }else{
     	firstFlg = false;
