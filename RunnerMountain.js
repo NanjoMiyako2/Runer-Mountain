@@ -1,6 +1,10 @@
-function test() {
-    keisokuFlg = true;
+function keisoku() {
     navigator.geolocation.getCurrentPosition(test2);
+}
+
+function startKeisoku(){
+	keisokuFlg = true;
+	test();
 }
 
 function stopKeisoku(){
@@ -66,7 +70,7 @@ function test2(position) {
     writeRunPt()
     
     if(keisokuFlg == true){
-    	setTimeout("test()", 60000)
+    	setTimeout("keisoku()", 60000)
 	}
 }
 
