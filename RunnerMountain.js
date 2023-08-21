@@ -12,6 +12,7 @@ var runPt = 0;
 
 if(localStrage.getItem('runPt') != null){
 	runPt = Number(localStrage.getItem('runPt'));
+	writeRunPt();
 }
 
 function writeRunPt(){
