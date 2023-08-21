@@ -4,7 +4,7 @@ function keisoku() {
 
 function startKeisoku(){
 	keisokuFlg = true;
-	test();
+	keisoku();
 }
 
 function stopKeisoku(){
