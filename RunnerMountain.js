@@ -10,7 +10,7 @@ var prev_lon = 0;
 
 var runPt = 0;
 
-if(localStrage.getItem('runPt') != null){
+if(localStorage.getItem('runPt') != null){
 	runPt = Number(localStorage.getItem('runPt'));
 }
 writeRunPt()
