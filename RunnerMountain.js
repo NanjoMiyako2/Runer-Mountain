@@ -10,6 +10,7 @@ var prev_lon = 0;
 
 var runPt = 0;
 
+runPt = Number(localStrage.getItem('runPt'));
 
 function writeRunPt(){
 	span1 = document.getElementById("RunPt1");
@@ -49,8 +50,9 @@ function test2(position) {
     alert(geo_text);
     
     
-    if(dist1 >= 135){
+    if(dist1 >= 100 && dist1 <= 500 || true){
     	runPt = runPt + 1;
+    	localStorage.setItem('runPt', String(runPt));
     }
     writeRunPt()
     
