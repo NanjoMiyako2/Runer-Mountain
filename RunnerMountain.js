@@ -13,7 +13,7 @@ var runPt = 0;
 
 function writeRunPt(){
 	span1 = document.getElementById("RunPt1");
-	span1.innerHTML = runPT;
+	span1.innerHTML = runPt;
 }
 function test2(position) {
 
