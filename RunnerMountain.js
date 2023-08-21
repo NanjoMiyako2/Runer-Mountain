@@ -8,6 +8,13 @@ var firstFlg = true;
 var prev_lat = 0;
 var prev_lon = 0;
 
+var runPt = 0;
+
+
+function writeRunPt(){
+	span1 = document.getElementById("RunPt1");
+	span1.innerHTML = runPT;
+}
 function test2(position) {
 
 	lat2 = position.coords.latitude
@@ -38,10 +45,13 @@ function test2(position) {
     prev_lat = lat2;
     prev_lon = lon2;
     
-    
-    
     geo_text += "移動距離:" + dist1 + "メートル \n";
     alert(geo_text);
+    
+    
+    if(dist1 >= 135){
+    	runPt = runPt + 1;
+    }
     
     setTimeout("test()", 60000)
 
@@ -54,7 +64,6 @@ function deg2rad(degrees) {
 function rad2deg(radian){
         return radian * 360/(2*Math.PI);
 }
-
 
 /**
  * ２地点間の距離(m)を求める
