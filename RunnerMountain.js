@@ -21,7 +21,7 @@ function test2(position) {
     geo_text += "移動方向:" + position.coords.heading + "\n";
     geo_text += "速度:" + position.coords.speed + "\n";
     geo_text += "prev_lat:" + prev_lat + "\n";
-    get_text += "prev_lon:" + prev_lon + "\n";
+    geo_text += "prev_lon:" + prev_lon + "\n";
 
     var date = new Date(position.timestamp);
 
