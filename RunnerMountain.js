@@ -1,5 +1,10 @@
 function test() {
-    navigator.geolocation.getCurrentPosition(test2)
+    keisokuFlg = true;
+    navigator.geolocation.getCurrentPosition(test2);
+}
+
+function stopKeisoku(){
+	keisokuFlg = false;
 }
 
 
@@ -9,6 +14,7 @@ var prev_lat = 0;
 var prev_lon = 0;
 
 var runPt = 0;
+var keisokuFlg = false;
 
 if(localStorage.getItem('runPt') != null){
 	runPt = Number(localStorage.getItem('runPt'));
@@ -59,8 +65,9 @@ function test2(position) {
     }
     writeRunPt()
     
-    setTimeout("test()", 60000)
-
+    if(keisokuFlg == true){
+    	setTimeout("test()", 60000)
+	}
 }
 
 function deg2rad(degrees) {
