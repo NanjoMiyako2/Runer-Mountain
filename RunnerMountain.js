@@ -11,9 +11,9 @@ var prev_lon = 0;
 var runPt = 0;
 
 if(localStrage.getItem('runPt') != null){
-	runPt = Number(localStrage.getItem('runPt'));
-	writeRunPt();
+	runPt = Number(localStorage.getItem('runPt'));
 }
+writeRunPt()
 
 function writeRunPt(){
 	span1 = document.getElementById("RunPt1");
