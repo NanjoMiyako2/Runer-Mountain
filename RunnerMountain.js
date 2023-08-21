@@ -45,6 +45,15 @@ function test2(position) {
 
 }
 
+function deg2rad(degrees) {
+  return degrees * Math.PI / 180;
+};
+
+function rad2deg(radian){
+        return radian * 360/(2*Math.PI);
+}
+
+
 /**
  * ２地点間の距離(m)を求める
  * ヒュベニの公式から求めるバージョン
