@@ -18,7 +18,7 @@ function test2(position) {
 
     alert(geo_text);
     
-    setTimeout(test(), 10000)
+    setTimeout(test, 1000)
     
 
 }
