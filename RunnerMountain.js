@@ -1,5 +1,5 @@
 function test() {
-    navigator.geolocation.getCurrentPosition(test2);
+    setInterval(navigator.geolocation.getCurrentPosition(test2), 10000)
 }
 
 function test2(position) {
@@ -17,8 +17,6 @@ function test2(position) {
     geo_text += "取得時刻:" + date.toLocaleString() + "\n";
 
     alert(geo_text);
-    
-    setTimeout(test, 10000)
     
 
 }
