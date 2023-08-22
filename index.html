@@ -5,7 +5,45 @@
 <meta charset="utf-8">
 <button onclick="startKeisoku()" style="font-size:100px;">計測開始</button><br>
 <font size="7">現在のポイント:<span id="RunPt1"></span></font><br>
+<font size="4">現在の状態:<span id="KeisokuFlg1"></span></font><br>
 <button onclick="stopKeisoku()" style="font-size:100px;">計測終了</button><br>
+<hr>
+  <ul id="tab_menu1" class="tab_menu">
+    <br>
+    <li><a class="Tablink" href="#pageUseRunPt">ランポイントを使って山を散策</a></li>
+    <br>
+    <li><a class="Tablink" href="#pageHanaZukan">花図鑑</a></li>
+    <br>
+  </ul>
+<hr>
+
+  <div id="tab_content1" class="tab_content">
+	
+	<!-- ランポイント使用タブ -->
+	<div id="pageUseRunPt" class="TabPage">
+	
+	<select id="MountainNames">
+	    <option value="A山">A山</option>
+	    <option value="B山">B山</option>
+	    <option value="C山">C山</option>
+	</select><br>
+	<button onclick="UseRunPt()" style="font-size:100px;">ランポイント(30pt)を使用して散策</button><br>
+	<h2>見つけた花:<span id="detecteHana1"></span></h2><br>
+    </div>
+    
+    
+    <!-- 花図鑑タブ -->    
+	<div id="pageHanaZukan" class="TabPage">
+	<h2>
+	見つけた花の数:<span id="detectedHanaCount1"></span><br>
+	花一覧
+	<h2>
+	<h2 id="hanaZukan1">
+	</h2>
+    </div>
+
+
+
 <script src="RunnerMountain.js"></script>
 
 </html>
