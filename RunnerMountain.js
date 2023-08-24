@@ -11,24 +11,47 @@ if(localStorage.getItem('runPt') != null){
 	runPt = Number(localStorage.getItem('runPt'));
 }
 
-runPt = 900;
+//runPt = 900;
 
 var allHanaDict = {}
 
+/*
 allHanaDict["アイ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%a4%ef%bc%88%e3%82%bf%e3%83%87%e3%82%a2%e3%82%a4%ef%bc%89/"
-allHanaDict["アイスランドポピー"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%a4%e3%82%b9%e3%83%a9%e3%83%b3%e3%83%89%e3%83%9d%e3%83%94%e3%83%bc%ef%bc%88%e3%82%b7%e3%83%99%e3%83%aa%e3%82%a2%e3%83%92%e3%83%8a%e3%82%b2%e3%82%b7%ef%bc%89/";
-allHanaDict["アグロステンマ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%b0%e3%83%ad%e3%82%b9%e3%83%86%e3%83%b3%e3%83%9e%ef%bc%88%e3%83%a0%e3%82%ae%e3%83%8a%e3%83%87%e3%82%b7%e3%82%b3%ef%bc%89/";
-allHanaDict["アイイロニワゼキショウ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%a4%e3%82%a4%e3%83%ad%e3%83%8b%e3%83%af%e3%82%bc%e3%82%ad%e3%82%b7%e3%83%a7%e3%82%a6/";
-allHanaDict["アイズシモツケ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%a4%e3%82%ba%e3%82%b7%e3%83%a2%e3%83%84%e3%82%b1/";
-allHanaDict["アオキ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%aa%e3%82%ad/";
-allHanaDict["アオギリ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%aa%e3%82%ae%e3%83%aa/";
-allHanaDict["アオチドリ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%aa%e3%83%81%e3%83%89%e3%83%aa%ef%bc%88%e3%83%8d%e3%83%a0%e3%83%ad%e3%83%81%e3%83%89%e3%83%aa%ef%bc%89/";
-allHanaDict["アオテンナンショウ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%aa%e3%83%86%e3%83%b3%e3%83%8a%e3%83%b3%e3%82%b7%e3%83%a7%e3%82%a6/";
+*/
+
 
 var detectedHanaDict = {}
-detectedHanaDict["アイ"] = true;
+
+
+
+var MountainHanaDict = {}
+
+
+
+if(localStorage.getItem('saveData') != null){
+	detectedHanaDict = JSON.parse(localStorage.getItem('saveData'));
+	
+}else{
+	initDetectedHanaDict();
+	
+}
+
+if(localStorage.getItem('allHanaDict') == null){
+	initHanaDict();
+}else{
+	allHanaDict = JSON.parse(localStorage.getItem('allHanaDict'));
+}
+
+if(localStorage.getItem('MountainHanaDict') == null){
+	initMountainHanaDict()
+}else{
+	MountainHanaDict = JSON.parse(localStorage.getItem('MountainHanaDict'));
+}
+
+function initDetectedHanaDict(){
+detectedHanaDict["アイ"] = false;
 detectedHanaDict["アイスランドポピー"] = false;
-detectedHanaDict["アグロステンマ"] = true;
+detectedHanaDict["アグロステンマ"] = false;
 detectedHanaDict["アイイロニワゼキショウ"] = false; 
 detectedHanaDict["アイズシモツケ"] = false; 
 detectedHanaDict["アオキ"] = false; 
@@ -36,18 +59,58 @@ detectedHanaDict["アオギリ"] = false;
 detectedHanaDict["アオチドリ"] = false; 
 detectedHanaDict["アオテンナンショウ"] = false;
 
-
-var MountainHanaDict = {}
-MountainHanaDict["A山"] = ["アイ", "アイスランドポピー", "アグロステンマ"]
-MountainHanaDict["B山"] = ["アイイロニワゼキショウ", "アイズシモツケ", "アオキ"]
-MountainHanaDict["C山"] = ["アオギリ", "アオチドリ", "アオテンナンショウ"]
-
-
-if(localStorage.getItem('saveData') != null){
-	detectedHanaDict = JSON.parse(localStorage.getItem('saveData'));
-	
 }
 
+function clearStorage(){
+	flg1 = confirm('本にデータを初期化しますか?');
+	
+	if(flg1 == true){
+		localStorage.clear();
+		alert('データを初期化しました');
+	}else{
+		return;
+	}
+}
+
+
+
+function initHanaDict(){
+	/* これでもOK */
+	allHanaDict["アイ"] = "https://minhana.net/wiki/アイ（タデアイ）"
+	allHanaDict["アイスランドポピー"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%a4%e3%82%b9%e3%83%a9%e3%83%b3%e3%83%89%e3%83%9d%e3%83%94%e3%83%bc%ef%bc%88%e3%82%b7%e3%83%99%e3%83%aa%e3%82%a2%e3%83%92%e3%83%8a%e3%82%b2%e3%82%b7%ef%bc%89/";
+	allHanaDict["アグロステンマ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%b0%e3%83%ad%e3%82%b9%e3%83%86%e3%83%b3%e3%83%9e%ef%bc%88%e3%83%a0%e3%82%ae%e3%83%8a%e3%83%87%e3%82%b7%e3%82%b3%ef%bc%89/";
+	allHanaDict["アイイロニワゼキショウ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%a4%e3%82%a4%e3%83%ad%e3%83%8b%e3%83%af%e3%82%bc%e3%82%ad%e3%82%b7%e3%83%a7%e3%82%a6/";
+	allHanaDict["アイズシモツケ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%a4%e3%82%ba%e3%82%b7%e3%83%a2%e3%83%84%e3%82%b1/";
+	allHanaDict["アオキ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%aa%e3%82%ad/";
+	allHanaDict["アオギリ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%aa%e3%82%ae%e3%83%aa/";
+	allHanaDict["アオチドリ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%aa%e3%83%81%e3%83%89%e3%83%aa%ef%bc%88%e3%83%8d%e3%83%a0%e3%83%ad%e3%83%81%e3%83%89%e3%83%aa%ef%bc%89/";
+	allHanaDict["アオテンナンショウ"] = "https://minhana.net/wiki/%e3%82%a2%e3%82%aa%e3%83%86%e3%83%b3%e3%83%8a%e3%83%b3%e3%82%b7%e3%83%a7%e3%82%a6/";
+	
+	localStorage.setItem('allHanaDict', JSON.stringify(allHanaDict));
+}
+
+function initMountainHanaDict(){
+	MountainHanaDict["A山"] = ["アイ", "アイスランドポピー", "アグロステンマ"]
+	MountainHanaDict["B山"] = ["アイイロニワゼキショウ", "アイズシモツケ", "アオキ"]
+	MountainHanaDict["C山"] = ["アオギリ", "アオチドリ", "アオテンナンショウ"]
+
+
+	localStorage.setItem('MountainHanaDict', JSON.stringify(MountainHanaDict));
+
+}
+
+
+function writeKeisokuFlg(){
+
+	span1 = document.getElementById("KeisokuFlg1");
+	
+	if(keisokuFlg == true){
+		span1.innerHTML = "計測中";
+	}else{
+		span1.innerHTML = "--"
+	}
+
+}
 
 function UseRunPt(){
 
@@ -65,7 +128,8 @@ function UseRunPt(){
 	
 	
 	spanElem = document.getElementById("detecteHana1");
-	spanElem.innerHTML = hana1
+	URL1 = allHanaDict[hana1];
+	spanElem.innerHTML = "<a href=\"" + URL1 + "\"" + "  target=\"_blank\" >" + hana1 + "</a>";
 	
 	writeRunPt();
 	
@@ -179,6 +243,12 @@ function tab_init(link, index){
 			
 			return false;
 		};
+  }else if(id == 'pageClearStorage'){//データを初期化タブの初期表示メソッド
+  	  link.onclick = function(){
+		  	changeTab(link);
+			
+			return false;
+		};
   }
   
 }
@@ -193,11 +263,14 @@ function keisoku() {
 
 function startKeisoku(){
 	keisokuFlg = true;
+	writeKeisokuFlg();
 	keisoku();
 }
 
 function stopKeisoku(){
 	keisokuFlg = false;
+	writeKeisokuFlg();
+	
 }
 
 
