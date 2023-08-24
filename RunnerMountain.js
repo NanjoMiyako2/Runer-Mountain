@@ -312,10 +312,10 @@ function test2(position) {
     prev_lon = lon2;
     
     geo_text += "移動距離:" + dist1 + "メートル \n";
-    alert(geo_text);
+    /* alert(geo_text); */
     
     
-    if(dist1 >= 100 && dist1 <= 500 || true){
+    if(dist1 >= 100 && dist1 <= 500){
     	runPt = runPt + 1;
     	localStorage.setItem('runPt', String(runPt));
     }
